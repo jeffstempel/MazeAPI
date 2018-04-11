@@ -27,13 +27,21 @@ namespace MazeAPI.Controllers
 
             var mazeArray = MazeArray( maze );
 
-            // Need to find the start space by going through each row and column by column
+            for (int i = 0; i < mazeArray.Length; i++)
+            {
+                var row = mazeArray[ i ];
+                for (int j =0; j< row.Length; j++ )
+                {
+                    if (mazeArray[i][j] == 1)
+                    {
+                        // Start square found.
 
-            // Once that is figured out, that is where the start square is.
+                        // Begin traversing through the array to find next step and increment counter and replace . with @
 
-            // Begin traversing through the array to find next step and increment counter and replace . with @
-
-            // Will probably require recursion.
+                        // Will probably require recursion.
+                    }
+                }
+            }   
 
             solvedMaze.Solution = mazeArray.ToString();
             solvedMaze.Steps = 0; // this will need to be replaced once traversed and found optimal solution
@@ -60,7 +68,7 @@ namespace MazeAPI.Controllers
                             row[ j ] = 1;
                             break;
                         case 'B':
-                            row[ j ] = -3;
+                            row[ j ] = 2;
                             break;
                         default:
                             row[ j ] = 0;
